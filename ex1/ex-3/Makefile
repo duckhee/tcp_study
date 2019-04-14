@@ -2,24 +2,25 @@ CC = gcc
 
 TARGET = 
 
-SRCS = hello_server.c
+SRCS = hello_server.c tcp_client.c
 
 BUILD = build
 
+
+
+COBJS = $(addprefix $(BUILD)/,$(SRCS:.c=.o))
+
+
+all: clean mkdirs $(COBJS)
 
 
 mkdirs:
 	$(shell mkdir ${BUILD})
 
 
-COBJS = $(addprefix $(BUILD)/,$(SRCS:.c=.o))
-
 $(COBJS): $(BUILD)/%.o : %.c
 	$(CC) $< -o $@
 
-
-
-all: mkdirs
 
 
 server:

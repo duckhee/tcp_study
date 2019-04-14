@@ -1,18 +1,30 @@
 CC = gcc
 
-TARGET = 
+TARGET = test
 
-SRCS = hell_server.c hello_client.c
+SRCS = hello_server.c hello_client.c
 
-mkdirs:
-	$(shell mkdir build)
+BUILDDIR = build
 
-COBJS: %.o : %.c
+COBJS = $(addprefix $(BUILDDIR)/,$(SRCS:.c=.o))
 
-%.o:
-	gcc -o $@ $<
+#종속 되는  build는 밑에 있어야한다.
 
-all: mkdirs
+
+#%.o: 
+#	gcc -o $@ $<
+
+all: clean createdirs $(COBJS)
+
+
+createdirs:
+	$(shell mkdir ${BUILDDIR})
+
+
+$(COBJS): $(BUILDDIR)/%.o : %.c
+	$(CC) $< -o $@
+#	$(CC) -o $@ $^
+
 
 clean:
 	rm -rf build

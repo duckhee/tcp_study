@@ -2,19 +2,21 @@ CC = gcc
 
 TARGET = 
 
-SRCS = low_open.c low_read.c
+SRCS = low_open.c low_read.c fd_seri.c
 
 BUILD = build
 
-COBJS = $(addprefix $(BUILD)/,$(SRSC:.c=.o))
+COBJS = $(addprefix $(BUILD)/,$(SRCS:.c=.o))
 
-$(COBJS): $(BUILD)/%.o: %.c
-	$(CC) $< -o $@
+all: clean mkdirs $(COBJS)
+
 
 mkdirs:
 	$(shell mkdir ${BUILD})
 
-all: mkdirs
+
+$(COBJS): $(BUILD)/%.o: %.c
+	$(CC) $< -o $@
 
 
 open:
