@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 		printf("Usage : %s <IP> <PORT> \r\n", argv[0]);
 		exit(1);
 	}
-	fp = fopen("receive.dat", "wb");
+	fp = fopen("./build/receive.dat", "wb");
 	sd = socket(PF_INET, SOCK_STREAM, 0);
 	if(sd == -1)
 	{

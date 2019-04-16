@@ -1,3 +1,11 @@
+/**
+ * 1. 소켓 생성 
+ * 2. 구조체 생성 (소켓 구조체)
+ * 3. bind : 소켓이 구조체에 적용
+ * 4. listen : 접속하는지 대기하는지
+ * 5. Accept : 커뮤니케이션소켓(IP: client Port : )
+ */ 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>

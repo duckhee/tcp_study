@@ -1,10 +1,10 @@
 CC = gcc
 
-SRCS = file_server.c file_client.c
+SRCS = reuseadr_eserver.c echo_client.c
 
 BUILDDIR = build
 
-COBJS = $(addprefix $(BUILDDIR)/,$(SRCS:.c=.o))
+COBJS = $(addprefix $(BUILDDIR)/, $(SRCS:.c=.o))
 
 all: clean createdirs $(COBJS)
 
@@ -16,7 +16,4 @@ $(COBJS): $(BUILDDIR)/%.o : %.c
 
 clean:
 	rm -rf $(BUILDDIR)
-	
-
-
 

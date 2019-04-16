@@ -1,3 +1,9 @@
+/**
+ * 1.소켓 생성
+ * 2. 구조체 생성 
+ * 3. connect: 서버의 accept
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
