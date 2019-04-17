@@ -1,6 +1,6 @@
 CC = gcc
 
-SRCS = 
+SRCS = signal.c
 
 BUILDDIR = build
 
