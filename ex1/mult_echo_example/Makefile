@@ -1,6 +1,6 @@
 CC = gcc
 
-SRCS = signal.c sigaction.c remove_zombie.c
+SRCS = echo_mpserv.c echo_client.c
 
 BUILDDIR = build
 
