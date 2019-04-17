@@ -1,6 +1,6 @@
 CC = gcc
 
-SRCS = echo_mpserv.c echo_client.c echo_mpclient.c
+SRCS = select.c echo_selectserv.c echo_client.c
 
 BUILDDIR = build
 
@@ -16,3 +16,4 @@ $(COBJS): $(BUILDDIR)/%.o : %.c
 
 clean:
 	rm -rf $(BUILDDIR)
+

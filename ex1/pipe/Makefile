@@ -1,6 +1,6 @@
 CC = gcc
 
-SRCS = echo_mpserv.c echo_client.c echo_mpclient.c
+SRCS = pipe1.c pipe2.c pipe3.c
 
 BUILDDIR = build
 
