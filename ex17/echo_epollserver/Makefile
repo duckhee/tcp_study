@@ -1,6 +1,6 @@
 CC = gcc
 
-SRCS = 
+SRCS = echo_epollserv.c echo_epollclient.c
 
 CFLAGS = 
 
@@ -8,13 +8,16 @@ BUILDDIR = build
 
 COBJS = $(addprefix $(BUILDDIR)/, $(SRCS:.c=.o))
 
-all: clean createdirs $(COBJS)
+all: clean createdirs build
 
 createdirs:
 	$(shell mkdir ${BUILDDIR})
 
-$(COBJS) : $(BUILDDIR)/%.o : %.c
+build: $(COBJS)
+
+$(COBJS): $(BUILDDIR)/%.o : %.c
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
 	rm -rf $(BUILDDIR)
+
