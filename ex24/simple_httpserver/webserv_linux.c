@@ -49,7 +49,7 @@ int main(int argc,char **argv)
     while(1)
     {
         clnt_addr_size = sizeof(clnt_addr);
-        clnt_sock = accept(serv_sock, (struct sockaddr *)&serv_addr, &clnt_addr_size);
+        clnt_sock = accept(serv_sock, (struct sockaddr *)&clnt_addr, &clnt_addr_size);
 
         if(clnt_sock == -1)
         {
