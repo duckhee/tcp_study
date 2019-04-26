@@ -84,7 +84,7 @@ void *request_handler(void *arg)
         send_error(clnt_write);
         fclose(clnt_read);
         fclose(clnt_write);
-        return 0;
+        return;
     }
     strcpy(method, strtok(req_line, " /"));
     strcpy(file_name, strtok(NULL, " /"));
@@ -94,7 +94,7 @@ void *request_handler(void *arg)
         send_error(clnt_write);
         fclose(clnt_read);
         fclose(clnt_write);
-        return 0;
+        return;
     }
     fclose(clnt_read);
     send_data(clnt_write, ct, file_name);
