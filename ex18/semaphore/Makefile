@@ -4,7 +4,7 @@ SRCS = semaphore.c
 
 BUILDDIR = build
 
-CFLAGS = -D_REENTRANT -lpthread
+CFLAGS = -D_REENTRANT 
 
 COBJS = $(addprefix $(BUILDDIR)/, $(SRCS:.c=.o))
 
@@ -16,7 +16,7 @@ createdirs:
 build: $(COBJS)
 
 $(COBJS):$(BUILDDIR)/%.o : %.c
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) $< -o $@ -lpthread
 
 clean:
 	rm -rf $(BUILDDIR)

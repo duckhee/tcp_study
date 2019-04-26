@@ -6,7 +6,7 @@ BUILDDIR = build
 
 COBJS = $(addprefix $(BUILDDIR)/, $(SRCS:.c=.o))
 
-CFLAGS = -D_REENTRANT -lpthread
+CFLAGS = -D_REENTRANT
 
 all: clean createdirs build
 
@@ -16,7 +16,7 @@ createdirs:
 build: $(COBJS)
 
 $(COBJS):$(BUILDDIR)/%.o : %.c
-	-$(CC) $(CFLAGS) $< -o $@
+	-$(CC) $(CFLAGS) $< -o $@ -lpthread
 
 clean:
 	rm -rf $(BUILDDIR)
