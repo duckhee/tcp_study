@@ -41,7 +41,7 @@ int main(int argc,char **argv)
     {
         error_handling("bind() error");
     }
-    if(listen(serv_sock, 5) == -1)
+    if(listen(serv_sock, 20) == -1)
     {
         error_handling("listen() error");
     }
@@ -84,7 +84,7 @@ void *request_handler(void *arg)
         send_error(clnt_write);
         fclose(clnt_read);
         fclose(clnt_write);
-        return;
+        return NULL;
     }
     strcpy(method, strtok(req_line, " /"));
     strcpy(file_name, strtok(NULL, " /"));
@@ -94,7 +94,7 @@ void *request_handler(void *arg)
         send_error(clnt_write);
         fclose(clnt_read);
         fclose(clnt_write);
-        return;
+        return NULL;
     }
     fclose(clnt_read);
     send_data(clnt_write, ct, file_name);
