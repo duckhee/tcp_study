@@ -16,7 +16,7 @@ createdirs:
 build: $(COBJS)
 
 $(COBJS):$(BUILDDIR)/%.o : %.c
-	-$(CC) $(CFLAGS) $< -o $@
+	-$(CC) $< -o $@ $(CFLAGS)
 
 clean:
 	rm -rf $(BUILDDIR)

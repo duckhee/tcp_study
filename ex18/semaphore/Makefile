@@ -4,7 +4,7 @@ SRCS = semaphore.c
 
 BUILDDIR = build
 
-CFLAGS = -D_REENTRANT
+CFLAGS = -D_REENTRANT 
 
 COBJS = $(addprefix $(BUILDDIR)/, $(SRCS:.c=.o))
 
