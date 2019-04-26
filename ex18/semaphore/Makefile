@@ -1,12 +1,12 @@
 CC = gcc
 
-SRCS = thread1.c thread2.c thread3.c thread4.c 
+SRCS = semaphore.c
 
 BUILDDIR = build
 
-COBJS = $(addprefix $(BUILDDIR)/, $(SRCS:.c=.o))
+CFLAGS = -D_REENTRANT -lpthread
 
-CFLAGS = -lpthread
+COBJS = $(addprefix $(BUILDDIR)/, $(SRCS:.c=.o))
 
 all: clean createdirs build
 
@@ -16,8 +16,7 @@ createdirs:
 build: $(COBJS)
 
 $(COBJS):$(BUILDDIR)/%.o : %.c
-	-$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) $< -o $@
 
 clean:
 	rm -rf $(BUILDDIR)
-

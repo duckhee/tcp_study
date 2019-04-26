@@ -1,12 +1,12 @@
 CC = gcc
 
-SRCS = thread1.c thread2.c thread3.c thread4.c 
+SRCS = mutex.c
 
 BUILDDIR = build
 
 COBJS = $(addprefix $(BUILDDIR)/, $(SRCS:.c=.o))
 
-CFLAGS = -lpthread
+CFLAGS = -D_REENTRANT -lpthread
 
 all: clean createdirs build
 
